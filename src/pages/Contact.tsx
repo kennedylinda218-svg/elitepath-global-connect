@@ -157,7 +157,7 @@ const Contact = () => {
                       <Phone className="text-secondary" size={24} />
                     </div>
                     <div>
-                      <h3 className="font-montserrat font-bold text-primary mb-1">Phone</h3>
+                      <h3 className="font-montserrat font-bold text-primary mb-1">Phone / WhatsApp</h3>
                       <p className="text-muted-foreground">+1 (555) 123-4567</p>
                     </div>
                   </div>
@@ -167,8 +167,11 @@ const Contact = () => {
                       <MapPin className="text-secondary" size={24} />
                     </div>
                     <div>
-                      <h3 className="font-montserrat font-bold text-primary mb-1">Address</h3>
-                      <p className="text-muted-foreground">123 Business District<br />Global City, GC 12345</p>
+                      <h3 className="font-montserrat font-bold text-primary mb-1">Global Offices</h3>
+                      <p className="text-muted-foreground">
+                        <strong>North America:</strong> New York, USA<br />
+                        <strong>Europe:</strong> London, United Kingdom
+                      </p>
                     </div>
                   </div>
                 </div>
