@@ -19,12 +19,9 @@ const Navigation = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Employer Services", path: "/employer-services" },
-    { name: "Candidate Services", path: "/candidate-services" },
-    { name: "Our Process", path: "/process" },
+    { name: "Services", path: "/services" },
     { name: "Team", path: "/team" },
     { name: "Testimonials", path: "/testimonials" },
-    { name: "FAQ", path: "/faq" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -64,9 +61,9 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Link to="/upload-cv">
+            <Link to="/contact">
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                Upload CV
+                Get Started
               </Button>
             </Link>
           </div>
@@ -96,9 +93,9 @@ const Navigation = () => {
                   {link.name}
                 </Link>
               ))}
-              <Link to="/upload-cv" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                  Upload CV
+                  Get Started
                 </Button>
               </Link>
             </div>

@@ -38,22 +38,22 @@ const Footer = () => {
             <h3 className="font-montserrat font-bold text-lg mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li><Link to="/about" className="text-sm opacity-80 hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link to="/employer-services" className="text-sm opacity-80 hover:text-accent transition-colors">Employer Services</Link></li>
-              <li><Link to="/candidate-services" className="text-sm opacity-80 hover:text-accent transition-colors">Candidate Services</Link></li>
-              <li><Link to="/process" className="text-sm opacity-80 hover:text-accent transition-colors">Our Process</Link></li>
+              <li><Link to="/services" className="text-sm opacity-80 hover:text-accent transition-colors">Services</Link></li>
               <li><Link to="/team" className="text-sm opacity-80 hover:text-accent transition-colors">Our Team</Link></li>
+              <li><Link to="/testimonials" className="text-sm opacity-80 hover:text-accent transition-colors">Testimonials</Link></li>
+              <li><Link to="/contact" className="text-sm opacity-80 hover:text-accent transition-colors">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Services */}
           <div>
-            <h3 className="font-montserrat font-bold text-lg mb-6">Resources</h3>
+            <h3 className="font-montserrat font-bold text-lg mb-6">Our Services</h3>
             <ul className="space-y-3">
-              <li><Link to="/faq" className="text-sm opacity-80 hover:text-accent transition-colors">FAQ</Link></li>
-              <li><Link to="/testimonials" className="text-sm opacity-80 hover:text-accent transition-colors">Testimonials</Link></li>
-              <li><Link to="/privacy-policy" className="text-sm opacity-80 hover:text-accent transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="text-sm opacity-80 hover:text-accent transition-colors">Terms of Service</Link></li>
-              <li><Link to="/cookie-policy" className="text-sm opacity-80 hover:text-accent transition-colors">Cookie Policy</Link></li>
+              <li className="text-sm opacity-80">Executive Search</li>
+              <li className="text-sm opacity-80">Talent Acquisition</li>
+              <li className="text-sm opacity-80">Career Advisory</li>
+              <li className="text-sm opacity-80">CV Optimization</li>
+              <li className="text-sm opacity-80">Interview Coaching</li>
             </ul>
           </div>
 
@@ -71,7 +71,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm opacity-80">123 Business District, Global City, GC 12345</span>
+                <span className="text-sm opacity-80">New York, USA | London, UK</span>
               </li>
             </ul>
           </div>
