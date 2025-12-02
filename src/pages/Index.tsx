@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import CookieBanner from "@/components/CookieBanner";
 import JobOpenings from "@/components/JobOpenings";
 import heroImage from "@/assets/hero-recruitment.jpg";
 import { CheckCircle2, Users, Target, Globe, Shield, TrendingUp, ArrowRight, Briefcase } from "lucide-react";
@@ -44,7 +43,6 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <CookieBanner />
 
       {/* Hero Section */}
       <section className="relative pt-20 min-h-screen flex items-center bg-gradient-to-br from-primary via-primary to-midnight-sapphire overflow-hidden">

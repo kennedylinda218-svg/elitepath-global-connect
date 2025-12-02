@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -21,13 +21,13 @@ const Footer = () => {
               Connecting exceptional talent with global opportunities through ethical, efficient recruitment solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-accent transition-colors">
+              <a href="#" className="hover:text-accent transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="hover:text-accent transition-colors">
+              <a href="#" className="hover:text-accent transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="hover:text-accent transition-colors">
+              <a href="#" className="hover:text-accent transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
             </div>
@@ -42,18 +42,18 @@ const Footer = () => {
               <li><Link to="/team" className="text-sm opacity-80 hover:text-accent transition-colors">Our Team</Link></li>
               <li><Link to="/testimonials" className="text-sm opacity-80 hover:text-accent transition-colors">Testimonials</Link></li>
               <li><Link to="/contact" className="text-sm opacity-80 hover:text-accent transition-colors">Contact</Link></li>
+              <li><Link to="/upload-cv" className="text-sm opacity-80 hover:text-accent transition-colors">Submit Your CV</Link></li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Legal */}
           <div>
-            <h3 className="font-montserrat font-bold text-lg mb-6">Our Services</h3>
+            <h3 className="font-montserrat font-bold text-lg mb-6">Legal</h3>
             <ul className="space-y-3">
-              <li className="text-sm opacity-80">Executive Search</li>
-              <li className="text-sm opacity-80">Talent Acquisition</li>
-              <li className="text-sm opacity-80">Career Advisory</li>
-              <li className="text-sm opacity-80">CV Optimization</li>
-              <li className="text-sm opacity-80">Interview Coaching</li>
+              <li><Link to="/privacy-policy" className="text-sm opacity-80 hover:text-accent transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="text-sm opacity-80 hover:text-accent transition-colors">Terms of Service</Link></li>
+              <li><Link to="/candidate-nda" className="text-sm opacity-80 hover:text-accent transition-colors">Candidate NDA</Link></li>
+              <li><Link to="/cookie-policy" className="text-sm opacity-80 hover:text-accent transition-colors">Cookie Policy</Link></li>
             </ul>
           </div>
 
@@ -62,18 +62,18 @@ const Footer = () => {
             <h3 className="font-montserrat font-bold text-lg mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
-                <Mail size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm opacity-80">contact@elitepath.com</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <Phone size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm opacity-80">+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm opacity-80">New York, USA | London, UK</span>
+                <span className="text-sm opacity-80">United States</span>
               </li>
             </ul>
+            <div className="mt-6">
+              <Link 
+                to="/contact" 
+                className="inline-block bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-2 rounded-lg font-medium text-sm transition-colors"
+              >
+                Get in Touch
+              </Link>
+            </div>
           </div>
         </div>
 
