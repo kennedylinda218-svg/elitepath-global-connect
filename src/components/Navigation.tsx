@@ -59,8 +59,13 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <Link to="/upload-cv">
+              <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold">
+                Submit CV
+              </Button>
+            </Link>
             <Link to="/contact">
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
                 Get Started
@@ -93,6 +98,11 @@ const Navigation = () => {
                   {link.name}
                 </Link>
               ))}
+              <Link to="/upload-cv" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button variant="outline" className="w-full border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold">
+                  Submit CV
+                </Button>
+              </Link>
               <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
                   Get Started

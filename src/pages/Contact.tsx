@@ -7,10 +7,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { MapPin, Clock, FileText } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -19,7 +21,7 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -31,6 +33,21 @@ const Contact = () => {
       });
       return;
     }
+
+    // Email validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     // Show success message
     toast({
@@ -46,6 +63,8 @@ const Contact = () => {
       userType: "",
       message: "",
     });
+    
+    setIsSubmitting(false);
   };
 
   return (
@@ -131,8 +150,13 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>
@@ -144,46 +168,41 @@ const Contact = () => {
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="text-secondary" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-montserrat font-bold text-primary mb-1">Email</h3>
-                      <p className="text-muted-foreground">contact@elitepath.com</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="text-secondary" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-montserrat font-bold text-primary mb-1">Phone / WhatsApp</h3>
-                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                       <MapPin className="text-secondary" size={24} />
                     </div>
                     <div>
-                      <h3 className="font-montserrat font-bold text-primary mb-1">Global Offices</h3>
-                      <p className="text-muted-foreground">
-                        <strong>North America:</strong> New York, USA<br />
-                        <strong>Europe:</strong> London, United Kingdom
-                      </p>
+                      <h3 className="font-montserrat font-bold text-primary mb-1">Location</h3>
+                      <p className="text-muted-foreground">United States</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="bg-muted/30 p-8 rounded-xl">
-                <h3 className="font-montserrat font-bold text-primary mb-4">Office Hours</h3>
+                <h3 className="font-montserrat font-bold text-primary mb-4 flex items-center gap-2">
+                  <Clock className="text-secondary" size={20} />
+                  Office Hours
+                </h3>
                 <div className="space-y-2 text-muted-foreground">
-                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p>Saturday: 10:00 AM - 2:00 PM</p>
+                  <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                  <p>Saturday: 10:00 AM - 2:00 PM EST</p>
                   <p>Sunday: Closed</p>
                 </div>
+              </div>
+
+              <div className="bg-accent/10 border border-accent/30 p-8 rounded-xl">
+                <h3 className="font-montserrat font-bold text-primary mb-4 flex items-center gap-2">
+                  <FileText className="text-accent" size={20} />
+                  Looking for a Job?
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Submit your CV and let our recruitment experts match you with the perfect opportunity.
+                </p>
+                <Link to="/upload-cv">
+                  <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                    Submit Your CV
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
