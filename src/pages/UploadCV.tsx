@@ -126,23 +126,40 @@ const UploadCV = () => {
     setIsSubmitting(true);
 
     try {
-      const formDataToSend = new FormData();
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("phone", formData.phone);
-      formDataToSend.append("userType", formData.userType);
-      formDataToSend.append("message", formData.message);
-      formDataToSend.append("ndaAgreed", "Yes");
-      formDataToSend.append("privacyAgreed", "Yes");
-      formDataToSend.append("termsAgreed", "Yes");
+      // Convert file to base64 for submission
+      let fileBase64 = "";
+      let fileName = "";
       
       if (selectedFile) {
-        formDataToSend.append("cv", selectedFile);
+        fileName = selectedFile.name;
+        fileBase64 = await new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const base64 = reader.result as string;
+            resolve(base64);
+          };
+          reader.readAsDataURL(selectedFile);
+        });
       }
 
       const response = await fetch("https://formspree.io/f/xanrjznr", {
         method: "POST",
-        body: formDataToSend,
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          userType: formData.userType,
+          message: formData.message,
+          ndaAgreed: "Yes",
+          privacyAgreed: "Yes",
+          termsAgreed: "Yes",
+          cvFileName: fileName,
+          cvFile: fileBase64,
+        }),
       });
 
       if (response.ok) {
