@@ -46,25 +46,47 @@ const Contact = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://formspree.io/f/xgvgybvy", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          userType: formData.userType,
+          message: formData.message,
+        }),
+      });
 
-    // Show success message
-    toast({
-      title: "Message Sent!",
-      description: "Thank you! Your message has been received. Our team will contact you shortly.",
-    });
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you! Your message has been received. Our team will contact you shortly.",
+        });
 
-    // Reset form
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      userType: "",
-      message: "",
-    });
-    
-    setIsSubmitting(false);
+        // Reset form
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          userType: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

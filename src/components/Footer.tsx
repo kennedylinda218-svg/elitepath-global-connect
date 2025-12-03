@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -17,20 +17,9 @@ const Footer = () => {
                 <span className="text-xs opacity-80">Recruitment Solutions</span>
               </div>
             </div>
-            <p className="text-sm opacity-80 mb-6">
+            <p className="text-sm opacity-80">
               Connecting exceptional talent with global opportunities through ethical, efficient recruitment solutions.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-accent transition-colors" aria-label="LinkedIn">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="hover:text-accent transition-colors" aria-label="Twitter">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="hover:text-accent transition-colors" aria-label="Facebook">
-                <Facebook size={20} />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
