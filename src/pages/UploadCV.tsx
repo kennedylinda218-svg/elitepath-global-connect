@@ -125,16 +125,44 @@ const UploadCV = () => {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("userType", formData.userType);
+      formDataToSend.append("message", formData.message);
+      formDataToSend.append("ndaAgreed", "Yes");
+      formDataToSend.append("privacyAgreed", "Yes");
+      formDataToSend.append("termsAgreed", "Yes");
+      
+      if (selectedFile) {
+        formDataToSend.append("cv", selectedFile);
+      }
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      const response = await fetch("https://formspree.io/f/xanrjznr", {
+        method: "POST",
+        body: formDataToSend,
+      });
 
-    toast({
-      title: "Application Submitted Successfully!",
-      description: "Thank you for your submission. Our team will review your CV and get back to you within 2-3 business days.",
-    });
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast({
+          title: "Application Submitted Successfully!",
+          description: "Thank you for your submission. Our team will review your CV and get back to you within 2-3 business days.",
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
