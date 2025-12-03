@@ -34,14 +34,8 @@ const Navigation = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">EP</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-montserrat font-bold text-xl text-primary">ElitePath</span>
-              <span className="text-xs text-muted-foreground">Recruitment Solutions</span>
-            </div>
+          <Link to="/" className="flex items-center space-x-2">
+            <img src="/logo.png" alt="ElitePath Recruitment Solutions" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
