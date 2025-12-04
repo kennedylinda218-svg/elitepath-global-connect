@@ -317,7 +317,20 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <Card className="border-2 hover:border-secondary/30 hover:shadow-lg transition-all duration-300">
               <CardContent className="p-8 space-y-4">
-                <div className="flex items-center space-x-2 text-accent">
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face" 
+                      alt="Sarah Johnson"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-montserrat font-bold text-primary">Sarah Johnson</p>
+                    <p className="text-sm text-muted-foreground">Software Engineer</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-1 text-accent">
                   {[...Array(5)].map((_, i) => (
                     <span key={i}>★</span>
                   ))}
@@ -325,16 +338,25 @@ const Index = () => {
                 <p className="text-foreground italic leading-relaxed">
                   "ElitePath found me the perfect role that aligned with my career goals. Their team was professional, responsive, and genuinely cared about my success."
                 </p>
-                <div className="pt-4 border-t border-border">
-                  <p className="font-montserrat font-bold text-primary">Sarah Johnson</p>
-                  <p className="text-sm text-muted-foreground">Software Engineer</p>
-                </div>
               </CardContent>
             </Card>
 
             <Card className="border-2 hover:border-secondary/30 hover:shadow-lg transition-all duration-300">
               <CardContent className="p-8 space-y-4">
-                <div className="flex items-center space-x-2 text-accent">
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                      alt="Michael Chen"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-montserrat font-bold text-primary">Michael Chen</p>
+                    <p className="text-sm text-muted-foreground">HR Director, Tech Corp</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-1 text-accent">
                   {[...Array(5)].map((_, i) => (
                     <span key={i}>★</span>
                   ))}
@@ -342,10 +364,6 @@ const Index = () => {
                 <p className="text-foreground italic leading-relaxed">
                   "We've partnered with ElitePath for three years. They consistently deliver exceptional candidates who become long-term assets to our organization."
                 </p>
-                <div className="pt-4 border-t border-border">
-                  <p className="font-montserrat font-bold text-primary">Michael Chen</p>
-                  <p className="text-sm text-muted-foreground">HR Director, Tech Corp</p>
-                </div>
               </CardContent>
             </Card>
           </div>
@@ -356,6 +374,29 @@ const Index = () => {
                 Read More Testimonials
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Equal Opportunity Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto">
+              <Users className="text-accent" size={32} />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-primary">
+              Equal Opportunity for All
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              ElitePath Recruitment Solutions is committed to equal opportunity employment. We believe that diverse perspectives drive innovation and success. We do not discriminate on the basis of race, color, religion, sex, sexual orientation, gender identity, national origin, disability, veteran status, or any other protected characteristic.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 pt-4">
+              <span className="px-4 py-2 bg-background rounded-full text-sm font-medium text-foreground shadow-sm">Diversity</span>
+              <span className="px-4 py-2 bg-background rounded-full text-sm font-medium text-foreground shadow-sm">Inclusion</span>
+              <span className="px-4 py-2 bg-background rounded-full text-sm font-medium text-foreground shadow-sm">Equity</span>
+              <span className="px-4 py-2 bg-background rounded-full text-sm font-medium text-foreground shadow-sm">Belonging</span>
+            </div>
           </div>
         </div>
       </section>

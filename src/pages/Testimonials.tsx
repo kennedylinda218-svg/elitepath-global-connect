@@ -10,18 +10,21 @@ const Testimonials = () => {
       author: "Sarah Mitchell",
       position: "HR Director",
       company: "Global Tech Firm",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face",
     },
     {
       quote: "Fast, reliable, and professional recruitment support. They helped us scale our operations team during a critical growth phase without compromising on quality.",
       author: "James Chen",
       position: "Operations Manager",
       company: "Logistics Company",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
     },
     {
       quote: "The level of service and attention to detail sets ElitePath apart. They truly act as partners in our talent acquisition strategy.",
       author: "Emma Rodriguez",
       position: "VP of People & Culture",
       company: "Financial Services Firm",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
     },
   ];
 
@@ -31,18 +34,21 @@ const Testimonials = () => {
       author: "David Park",
       position: "Software Engineer",
       company: "Tech Industry",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
     },
     {
       quote: "The career guidance I received gave me confidence throughout the process. ElitePath's team genuinely cared about my success.",
       author: "Rachel Thompson",
       position: "Marketing Manager",
       company: "Healthcare Sector",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
     },
     {
       quote: "Professional, responsive, and supportive. They found me opportunities I wouldn't have discovered on my own.",
       author: "Ahmed Hassan",
       position: "Financial Analyst",
       company: "Banking Industry",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     },
   ];
 
@@ -74,13 +80,22 @@ const Testimonials = () => {
               {employerTestimonials.map((testimonial, index) => (
                 <Card key={index} className="relative border-2 hover:border-secondary/30 transition-colors">
                   <CardContent className="p-8 space-y-6">
-                    <Quote className="text-secondary/30" size={48} />
-                    <p className="text-foreground leading-relaxed italic">"{testimonial.quote}"</p>
-                    <div className="pt-4 border-t border-border">
-                      <p className="font-montserrat font-bold text-primary">{testimonial.author}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.position}</p>
-                      <p className="text-sm text-secondary">{testimonial.company}</p>
+                    <div className="flex items-center space-x-4">
+                      <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.author}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-montserrat font-bold text-primary">{testimonial.author}</p>
+                        <p className="text-sm text-muted-foreground">{testimonial.position}</p>
+                        <p className="text-sm text-secondary">{testimonial.company}</p>
+                      </div>
                     </div>
+                    <Quote className="text-secondary/30" size={32} />
+                    <p className="text-foreground leading-relaxed italic">"{testimonial.quote}"</p>
                   </CardContent>
                 </Card>
               ))}
@@ -100,13 +115,22 @@ const Testimonials = () => {
               {candidateTestimonials.map((testimonial, index) => (
                 <Card key={index} className="relative border-2 hover:border-accent/30 transition-colors">
                   <CardContent className="p-8 space-y-6">
-                    <Quote className="text-accent/30" size={48} />
-                    <p className="text-foreground leading-relaxed italic">"{testimonial.quote}"</p>
-                    <div className="pt-4 border-t border-border">
-                      <p className="font-montserrat font-bold text-primary">{testimonial.author}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.position}</p>
-                      <p className="text-sm text-accent">{testimonial.company}</p>
+                    <div className="flex items-center space-x-4">
+                      <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.author}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-montserrat font-bold text-primary">{testimonial.author}</p>
+                        <p className="text-sm text-muted-foreground">{testimonial.position}</p>
+                        <p className="text-sm text-accent">{testimonial.company}</p>
+                      </div>
                     </div>
+                    <Quote className="text-accent/30" size={32} />
+                    <p className="text-foreground leading-relaxed italic">"{testimonial.quote}"</p>
                   </CardContent>
                 </Card>
               ))}
