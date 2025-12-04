@@ -28,7 +28,7 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-card/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-card shadow-lg" : "bg-primary/95 backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -44,8 +44,10 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-secondary ${
-                  location.pathname === link.path ? "text-secondary" : "text-foreground"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled 
+                    ? (location.pathname === link.path ? "text-secondary" : "text-foreground hover:text-secondary")
+                    : (location.pathname === link.path ? "text-accent" : "text-primary-foreground hover:text-accent")
                 }`}
               >
                 {link.name}
@@ -56,7 +58,11 @@ const Navigation = () => {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <Link to="/upload-cv">
-              <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold">
+              <Button variant="outline" className={`font-semibold ${
+                isScrolled 
+                  ? "border-secondary text-secondary hover:bg-secondary hover:text-white"
+                  : "border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              }`}>
                 Submit CV
               </Button>
             </Link>
@@ -69,7 +75,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className={`lg:hidden p-2 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
