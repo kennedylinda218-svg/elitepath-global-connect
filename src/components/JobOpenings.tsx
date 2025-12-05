@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Briefcase } from "lucide-react";
@@ -75,18 +76,22 @@ const JobOpenings = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
-                  View Details
-                </Button>
+                <Link to="/jobs">
+                  <Button className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
+                    View Details
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-semibold">
-            View All Opportunities
-          </Button>
+          <Link to="/jobs">
+            <Button size="lg" variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-semibold">
+              View All Opportunities
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
