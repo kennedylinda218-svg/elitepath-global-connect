@@ -10,6 +10,7 @@ import Team from "./pages/Team";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import UploadCV from "./pages/UploadCV";
+import Jobs from "./pages/Jobs";
 import CandidateNDA from "./pages/CandidateNDA";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/upload-cv" element={<UploadCV />} />
+          <Route path="/jobs" element={<Jobs />} />
           <Route path="/candidate-nda" element={<CandidateNDA />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
